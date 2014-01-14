@@ -1,0 +1,15 @@
+.steam_group
+  .avator
+    = image_tag @steam_group.avatar_full_url
+  .name
+    = @steam_group.name
+.user_list
+  .steam_users
+    - @steam_ids.each do |steam_id|
+      .steam_id
+        .avator
+          = image_tag steam_id.icon_url
+        .name
+          = steam_id.nickname
+        .steam_id
+          = steam_id.steam_id64

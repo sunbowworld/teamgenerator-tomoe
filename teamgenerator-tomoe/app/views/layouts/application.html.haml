@@ -1,0 +1,26 @@
+!!! 5
+%html
+  %head
+    %title
+      Tg4
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    %center
+      #global_header
+        .content
+          .logo
+            %span#logo_holder
+              = link_to 'TeamGenerator4', '/home/index'
+                
+          #supernav{ style: "position: absolute; left: 200px" }
+            %Strong.menuitem.supernav
+              ユーザ一覧
+            %Strong.menuitem.supernav
+              チーム一覧
+            %Strong.menuitem.supernav
+              対戦結果一覧
+      #BG_bottom
+        #bodyContentsgi
+          = yield
