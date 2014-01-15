@@ -11,10 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140114141702) do
+ActiveRecord::Schema.define(version: 20140115141813) do
+
+  create_table "groups", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "groups_steam_users", force: true do |t|
+    t.integer "group_id"
+    t.integer "steam_user_id"
+  end
+
+  create_table "groups_teams", force: true do |t|
+    t.integer "group_id"
+    t.integer "team_id"
+  end
 
   create_table "steam_users", force: true do |t|
-    t.string   "steam_id64"
+    t.integer  "steam_id64", limit: 8
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

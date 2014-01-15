@@ -1,2 +1,2 @@
 # SteamWebApiキーを記述
-WebApi.api_key=''
+WebApi.api_key='A5E20AFC16D13F47225EAC42FFA0E3F0'
