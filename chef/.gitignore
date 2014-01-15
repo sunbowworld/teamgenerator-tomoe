@@ -1,0 +1,6 @@
+/cookbooks/
+
+/.bundle
+/Gemfile.lock
+/vendor/bundle
+
