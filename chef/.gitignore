@@ -1,4 +1,5 @@
 /cookbooks/
+/Berksfile.lock
 
 /.bundle
 /Gemfile.lock
