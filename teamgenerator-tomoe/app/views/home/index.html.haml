@@ -2,11 +2,7 @@
 .user_list
   .steam_users
     - @steam_ids.each do |steam_id|
-      .steam_id
-        .avator
-          = image_tag steam_id.icon_url
-        .name
-          = steam_id.nickname
+      = steam_card(steam_id)
 .add_form
   %Strong
     ユーザを追加

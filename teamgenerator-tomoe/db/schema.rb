@@ -24,11 +24,6 @@ ActiveRecord::Schema.define(version: 20140115141813) do
     t.integer "steam_user_id"
   end
 
-  create_table "groups_teams", force: true do |t|
-    t.integer "group_id"
-    t.integer "team_id"
-  end
-
   create_table "steam_users", force: true do |t|
     t.integer  "steam_id64", limit: 8
     t.string   "name"
@@ -44,6 +39,7 @@ ActiveRecord::Schema.define(version: 20140115141813) do
   end
 
   create_table "teams", force: true do |t|
+    t.integer  "group_id"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
