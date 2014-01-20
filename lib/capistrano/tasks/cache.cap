@@ -1,0 +1,5 @@
+namespace :cache do
+  task :clear do
+    
+  end
+end
