@@ -15,6 +15,7 @@ group :development, :test do
   gem 'sqlite3'
   gem 'sass-rails', '~> 4.0.0'
   gem 'haml-rails'
+  gem 'uglifier'
 end
 
 # development
