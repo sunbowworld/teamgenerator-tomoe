@@ -1,0 +1,48 @@
+namespace :deploy do
+  desc 'Check required files and directories exist'
+  task :check2 do
+    invoke "#{scm}:check"
+    invoke 'deploy:check2:directories2'
+    invoke 'deploy:check2:linked_dirs'
+    invoke 'deploy:check2:make_linked_dirs'
+    invoke 'deploy:check2:linked_files'
+  end
+  
+  namespace :check2 do
+    desc 'Check shared and release directories exist'
+    task :directories2 do
+      on release_roles :all do
+        sudo :mkdir, '-pv', shared_path, releases_path
+      end
+    end
+    
+    desc 'Check directories to be linked exist in shared'
+    task :linked_dirs do
+      next unless any? :linked_dirs
+      on release_roles :all do
+        sudo :mkdir, '-pv', linked_dirs(shared_path)
+      end
+    end
+    
+    desc 'Check directories of files to be linked exist in shared'
+    task :make_linked_dirs do
+      next unless any? :linked_files
+      on release_roles :all do |host|
+        sudo :mkdir, '-pv', linked_file_dirs(shared_path)
+      end
+    end
+
+    desc 'Check files to be linked exist in shared'
+    task :linked_files do
+      next unless any? :linked_files
+      on release_roles :all do |host|
+        linked_files(shared_path).each do |file|
+          unless test "[ -f #{file} ]"
+            error t(:linked_file_does_not_exist, file: file, host: host)
+            exit 1
+          end
+        end
+      end
+    end
+  end
+end

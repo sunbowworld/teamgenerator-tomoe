@@ -1,0 +1,3 @@
+alias bcap="bundle exec cap"
+alias brake="bundle exec spring rake"
+alias brails="bundle exec spring rails"

@@ -11,7 +11,7 @@
       },
       "nginx": {
         "server_name": "localhost",
-        "root": "/var/tg/current/public"
+        "root": "/var/www/teamgenerator-tomoe/current/public"
       }
     },
     "mariadb": {

@@ -9,12 +9,13 @@
 
 rbenv_root = "/usr/local/rbenv"
 
-#bash "rbenv rehash" do
-#  code "rbenv rehash"
-#end
+bash "rbenv rehash" do
+  code "#{rbenv_root}/bin/rbenv rehash"
+end
 
 # 必要なパッケージのインストール
-%w{gcc pcre pcre-devel zlib zlib-devel openssl openssl-devel}.each do |pkg|
+(%w{gcc pcre pcre-devel zlib zlib-devel openssl} +
+%w{openssl-devel curl-devel}).each do |pkg|
   package pkg do
     action :install
   end
@@ -23,6 +24,7 @@ end
 # passengerをインストール
 gem_package "passenger" do
   version node['ruby']['passenger']['version']
+  notifies :run, "bash[rbenv rehash]"
 end
 
 # nginx グループを作成

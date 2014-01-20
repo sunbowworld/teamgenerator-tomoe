@@ -17,3 +17,8 @@
 
 /vendor/bundle
 /Gemfile.lock
+
+/.project
+
+# Capistrano
+/config/database.yml
