@@ -16,7 +16,6 @@
 /tmp
 
 /vendor/bundle
-/Gemfile.lock
 
 /.project
 
