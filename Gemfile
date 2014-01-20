@@ -10,12 +10,12 @@ gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'uglifier'
+gem 'sass-rails', '~> 4.0.0'
+gem 'haml-rails'
 
 # assets
 group :development, :test do
   gem 'sqlite3'
-  gem 'sass-rails', '~> 4.0.0'
-  gem 'haml-rails'
 end
 
 # development
