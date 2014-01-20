@@ -9,13 +9,13 @@ gem 'execjs'
 gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'uglifier'
 
 # assets
 group :development, :test do
   gem 'sqlite3'
   gem 'sass-rails', '~> 4.0.0'
   gem 'haml-rails'
-  gem 'uglifier'
 end
 
 # development
