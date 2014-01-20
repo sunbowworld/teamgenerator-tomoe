@@ -15,9 +15,14 @@
 /log/*.log
 /tmp
 
+# Bundler
 /vendor/bundle
 
+# Aptana Studio
 /.project
 
+# submodule
+/chef
+
 # Capistrano
-/config/database.yml
+# /config/database.yml
