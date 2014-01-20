@@ -1,7 +1,0 @@
-/cookbooks/
-/Berksfile.lock
-
-/.bundle
-/Gemfile.lock
-/vendor/bundle
-
