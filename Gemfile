@@ -8,6 +8,7 @@ gem 'turbolinks'
 gem 'execjs'
 gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # assets
 group :development, :test do
