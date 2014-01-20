@@ -1,5 +1,0 @@
-namespace :deploy do
-  task :clear_cache do
-    
-  end
-end
