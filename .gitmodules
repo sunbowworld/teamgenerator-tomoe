@@ -1,3 +1,0 @@
-[submodule "chef"]
-	path = chef
-	url = git://github.com/sunbowworld/tomoe-chef.git

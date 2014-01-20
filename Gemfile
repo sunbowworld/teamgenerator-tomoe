@@ -7,13 +7,13 @@ gem 'steam-condenser', '1.3.8.1'
 gem 'turbolinks'
 gem 'execjs'
 gem 'therubyracer', platforms: :ruby
+gem 'jquery-rails'
 
 # assets
 group :development, :test do
   gem 'sqlite3'
   gem 'sass-rails', '~> 4.0.0'
   gem 'haml-rails'
-  gem 'jquery-rails'
 end
 
 # development
