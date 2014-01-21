@@ -1,16 +1,17 @@
 .tg_result
+  .generator
+    = image_tag 'generator.jpg', size: '128x128'
 .user_list
-  .steam_users
-    - @steam_ids.each do |steam_id|
-      = steam_card(steam_id)
+  - @steam_ids.each do |steam_id|
+    = steam_card(steam_id)
 .add_form
   %Strong
     ユーザを追加
-  .from_steam_id
+  .form_steam_id
     = form_tag "/home/add" do
       = text_field_tag "steam_id64s[]"
       = submit_tag "追加", name: nil
-  .from_group_id
+  .form_group_id
     %Strong
       グループからユーザを追加
     = form_tag "/home/show_group", method: :get do
