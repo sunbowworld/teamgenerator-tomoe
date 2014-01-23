@@ -1,10 +1,46 @@
 .clearfix
+  %h3
+    setting
   .row
-    .tg_result
+    .col-md-4
+      %span.label.label-default
+        The number of teams?
+      .btn-group
+        %button.btn.btn-default.btn-xs.dropdown-toggle.number_of_teams{"data-toggle" => "dropdown"}
+          .value{style: "float:left"}
+            2
+          %div{style: "float:left"}
+            %span.caret
+        %ul.dropdown-menu
+          - for teams_value in 1..4 do
+            %li.teams_value
+              %a
+                = teams_value
+    .col-md-4
+      %span.label.label-default
+        The number of users?
+      .btn-group
+        %button.btn.btn-default.btn-xs.dropdown-toggle.number_of_users{"data-toggle" => "dropdown"}
+          .value{style: "float:left"}
+            4
+          %div{style: "float:left"}
+            %span.caret
+        %ul.dropdown-menu
+          - for users_value in 1..24 do
+            %li.users_value
+              %a
+                = users_value
+    .col-md-4
+      .generator
+        = image_tag 'generator.jpg', size: '128x128'
+  %h3
+    selected_users
+  .row
+    .tg_area
       .tg_user
-  .generator
-    = image_tag 'generator.jpg', size: '128x128'
 .clearfix
+  %h3
+    userlist
   .user_list
     - @steam_ids.each do |steam_id|
       = steam_card(steam_id)
