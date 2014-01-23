@@ -15,3 +15,11 @@
 //= require turbolinks
 //= require bootstrap.min
 //= require_tree .
+
+function switchClassParent(obj,defaultParent,targetParent){
+    var isInDefaultParent = '.' + obj.parent().attr('class')===defaultParent
+    var parent = isInDefaultParent ? targetParent : defaultParent
+    obj.fadeOut(500,function(){
+      obj.appendTo(parent).hide().fadeIn(500)
+    })
+}
