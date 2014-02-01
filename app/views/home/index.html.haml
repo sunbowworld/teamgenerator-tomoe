@@ -1,35 +1,28 @@
-.clearfix
-  %h3
-    setting
-  .row
-    .col-md-4
-      %span.label.label-default
-        The number of teams?
-      .btn-group
-        %button.btn.btn-default.btn-xs.dropdown-toggle.number_of_teams{"data-toggle" => "dropdown"}
-          .value{style: "float:left"}
-            2
-          %div{style: "float:left"}
-            %span.caret
-        %ul.dropdown-menu
-          - for teams_value in 1..4 do
-            %li.teams_value
-              %a
-                = teams_value
-    .col-md-4
-      .generator
-        = image_tag 'generator.jpg', size: '128x128'
-  %h3
-    selected_users
-  .row.tg_area
-    .tg_result
-    .tg_user
-.clearfix
-  %h3
-    userlist
-  .user_list
-    - @steam_ids.each do |steam_id|
-      = steam_card(steam_id)
+%h3
+  setting
+.row
+  .col-md-4
+    %span.label.label-default
+      The number of teams?
+    .btn-group
+      %button.btn.btn-default.btn-xs.dropdown-toggle.number_of_teams{"data-toggle" => "dropdown"}
+        .value{style: "float:left"}
+          2
+        %div{style: "float:left"}
+          %span.caret
+      %ul.dropdown-menu
+        - for teams_value in 1..4 do
+          %li.teams_value
+            %a
+              = teams_value
+  .col-md-4
+    .generator
+      = image_tag 'generator.jpg', size: '128x128'
+%h3
+  selected_users
+.row.tg_area
+  .tg_result.row
+  .tg_user.row
 .add_form
   %Strong
     ユーザを追加
