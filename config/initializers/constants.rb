@@ -1,0 +1,1 @@
+DB_STRING_MAX = 255
