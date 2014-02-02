@@ -9,6 +9,7 @@ class BattleController < ApplicationController
   # 新規対戦結果入力画面表示
   def new
     @teams = Team.find(JSON.parse(params[:json])['teams'])
+    @battle = Battle.new
   end
   
   # 新規対戦結果作成

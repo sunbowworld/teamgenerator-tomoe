@@ -9,7 +9,7 @@ class TeamController < ApplicationController
   def create
     group = Group.find(params[:group])
     teams = params[:teams].map do |user_ids|
-      unless team = Team.find_by_user_ids(group, user_ids)
+      unless team = Team.find_by_steam_user_ids(group, user_ids)
         team = Team.new(group: group, steam_users: user_ids)
         team.save!
       end
