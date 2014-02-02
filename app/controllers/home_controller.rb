@@ -21,4 +21,10 @@ class HomeController < ApplicationController
       SteamId.new member.steam_id64
     end
   end
+
+  # test method.
+  # TODO: delete
+  def generator
+    render text: params[:json]
+  end
 end
