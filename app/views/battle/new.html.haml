@@ -1,3 +1,6 @@
 .container
   .row
-    
+    = form_for
+    - @teams.each do |team|
+      .team
+        
