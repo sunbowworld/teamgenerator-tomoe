@@ -1,38 +1,52 @@
-%h3
-  setting
-.row
-  .col-md-4
-    %span.label.label-default
-      The number of teams?
-    .btn-group
-      %button.btn.btn-default.btn-xs.dropdown-toggle.number_of_teams{"data-toggle" => "dropdown"}
-        .value{style: "float:left"}
-          2
-        %div{style: "float:left"}
-          %span.caret
-      %ul.dropdown-menu
-        - for teams_value in 1..4 do
-          %li.teams_value
-            %a
-              = teams_value
-  .col-md-4
-    .generator
-      = image_tag 'generator.jpg', size: '128x128'
-%h3
-  selected_users
-.row.tg_area
-  .tg_result.row
-  .tg_user.row
-.add_form
-  %Strong
-    ユーザを追加
-  .form_steam_id
-    = form_tag "/home/add" do
-      = text_field_tag "steam_id64s[]"
-      = submit_tag "追加", name: nil
-  .form_group_id
-    %Strong
-      グループからユーザを追加
-    = form_tag "/home/show_group", method: :get do
-      = text_field_tag "group_id"
-      = submit_tag "検索", name: nil
+.sidebar-nav.affix
+  %h3
+    userlist
+  .col-md-12
+    .user_list
+      - @steam_ids.each do |steam_id|
+        = steam_card_sidebar(steam_id)
+.container
+  = form_tag("team/create", {method: :post, id: "form"}) do
+    %input{type: "hidden", name: "group_id", value: "2"}
+  .row
+    %h3
+      setting
+    .row
+      .col-md-4
+        %span.label.label-default
+          The number of teams?
+        .btn-group
+          %button.btn.btn-default.btn-xs.dropdown-toggle.number_of_teams{"data-toggle" => "dropdown"}
+            .value{style: "float:left"}
+              2
+            %div{style: "float:left"}
+              %span.caret
+          %ul.dropdown-menu
+            - for teams_value in 1..4 do
+              %li.teams_value
+                %a
+                  = teams_value
+      .col-md-4
+        %button#submit
+          Send
+      .col-md-4
+        .generator
+          = image_tag 'generator.jpg', size: '128x128'
+    %h3
+      selected_users
+    .row.tg_area
+      .tg_result.row
+      .tg_user.row
+    .add_form
+      %Strong
+        ユーザを追加
+      .form_steam_id
+        = form_tag "/home/add" do
+          = text_field_tag "steam_id64s[]"
+          = submit_tag "追加", name: nil
+      .form_group_id
+        %Strong
+          グループからユーザを追加
+        = form_tag "/home/show_group", method: :get do
+          = text_field_tag "group_id"
+          = submit_tag "検索", name: nil

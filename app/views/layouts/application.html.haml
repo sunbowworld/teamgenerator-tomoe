@@ -27,15 +27,8 @@
               %li= link_to "ユーザ一覧", "/user/list"
               %li= link_to "チーム一覧", "/team/list"
               %li= link_to "対戦結果一覧", "/versus/list"
-    .sidebar-nav.affix
-      %h3
-        userlist
-      .col-md-12
-        .user_list
-          - @steam_ids.each do |steam_id|
-            = steam_card_sidebar(steam_id)
+    #container
+      = yield
     .container
-      .row
-        = yield
       %footer
         %p &copy; Company 2014
