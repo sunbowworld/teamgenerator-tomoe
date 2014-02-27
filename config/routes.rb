@@ -1,11 +1,15 @@
 TeamgeneratorTomoe::Application.routes.draw do
   root 'team#generate'
 
+  post "steam_user/create"
+  get "steam_user/list"
+  get "steam_user/steam_group"
+
   get  '/home/index', to: 'home#index'
   get  '/home/show_group', to: 'home#show_group'
   post '/home/add', to: 'home#add'
   #resources :steam_user, except: [:edit, :update]
-  
+
   # teamコントローラ (チーム関連)
   get    '/team', to: 'team#index'
   post   '/team', to: 'team#create'
