@@ -6,7 +6,7 @@
       - @steam_ids.each do |steam_id|
         = steam_card_sidebar(steam_id)
 .container
-  = form_tag("team/create", {method: :post, id: "form"}) do
+  = form_tag("/team", {method: :post, id: "form"}) do
     %input{type: "hidden", name: "group_id", value: "2"}
   .row
     %h3

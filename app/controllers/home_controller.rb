@@ -12,13 +12,17 @@ class HomeController < ApplicationController
       end
     end
     steam_users.compact.each(&:save)
-    redirect_to '/home/index'
+    redirect_to controller: :team, action: :generate
   end
 
   def show_group
     @steam_group = SteamGroup.new(params[:group_id])
     @steam_ids = @steam_group.members.map do |member|
-      SteamId.new member.steam_id64
+      begin
+        SteamId.new member.steam_id64
+      rescue
+        nil
+      end
     end
   end
 

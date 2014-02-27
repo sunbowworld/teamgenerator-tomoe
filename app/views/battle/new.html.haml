@@ -1,0 +1,15 @@
+.container
+  .row
+    = form_tag({action: 'create'}) do
+      - @teams.each do |team|
+        .team
+          .team-users
+            - team.steam_users.each do |user|
+              %p= user.name
+          .team-score
+            = label_tag "battle[scores][#{team.id}]", "スコア"
+            = text_field_tag "battle[scores][#{team.id}]", nil, {size: 25}
+      .datetime
+        = datetime_select :battle, :battle_at, {use_month_numbers: true, end_year: Time.now.year, default: Time.now}
+      .submit-btn
+        = submit_tag '送信'

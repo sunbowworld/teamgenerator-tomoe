@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class VersusInformationTest < ActiveSupport::TestCase
+class TeamControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end
