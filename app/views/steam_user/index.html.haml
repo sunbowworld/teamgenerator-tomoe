@@ -1,0 +1,7 @@
+.container
+  %h3
+    userlist
+  .col-md-12
+    .user_list
+      - @steam_users.each do |steam_user|
+        = steam_card(steam_user)

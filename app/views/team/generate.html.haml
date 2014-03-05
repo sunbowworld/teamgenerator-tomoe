@@ -3,8 +3,8 @@
     userlist
   .col-md-12
     .user_list
-      - @steam_ids.each do |steam_id|
-        = steam_card_sidebar(steam_id)
+      - @steam_users.each do |steam_user|
+        = steam_card_sidebar(steam_user)
 .container
   = form_tag("/team", {method: :post, id: "form"}) do
     %input{type: "hidden", name: "group_id", value: "2"}

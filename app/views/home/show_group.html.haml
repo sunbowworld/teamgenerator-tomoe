@@ -5,5 +5,5 @@
     = @steam_group.name
 .user_list
   .steam_users
-    - @steam_ids.each do |steam_id|
-      = steam_card(steam_id)
+    - @steam_users.each do |steam_user|
+      = steam_card(steam_user)
