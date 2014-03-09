@@ -1,10 +1,4 @@
-.sidebar-nav.affix
-  %h3
-    userlist
-  .col-md-12
-    .user_list
-      - @steam_ids.each do |steam_id|
-        = steam_card_sidebar(steam_id)
+= render partial: "layouts/side_bar", locals: {steam_users: @steam_users}
 .container
   = form_tag("/team", {method: :post, id: "form"}) do
     %input{type: "hidden", name: "group_id", value: "2"}
@@ -27,7 +21,7 @@
                 %a
                   = teams_value
       .col-md-4
-        %button#submit
+        .btn.btn-primary#submit
           Send
       .col-md-4
         .generator
@@ -47,6 +41,6 @@
       .form_group_id
         %Strong
           グループからユーザを追加
-        = form_tag "/home/show_group", method: :get do
+        = form_tag "/steam_user/search_group", method: :get do
           = text_field_tag "group_id"
           = submit_tag "検索", name: nil

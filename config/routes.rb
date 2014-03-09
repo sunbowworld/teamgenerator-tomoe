@@ -2,8 +2,9 @@ TeamgeneratorTomoe::Application.routes.draw do
   root 'team#generate'
 
   post "steam_user/create"
-  get "steam_user/list"
-  get "steam_user/steam_group"
+  post "steam_user/create_ids"
+  get "steam_user/index"
+  get "steam_user/search_group"
 
   get  '/home/index', to: 'home#index'
   get  '/home/show_group', to: 'home#show_group'

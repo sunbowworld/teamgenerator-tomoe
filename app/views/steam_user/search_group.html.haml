@@ -1,0 +1,13 @@
+= render partial: "layouts/side_bar", locals: {steam_users: @steam_users}
+.container
+  .steam_group
+    .avator
+      = image_tag @steam_group.avatar_full_url
+      .name
+        = @steam_group.name
+  %h5
+    selected users
+  .register_users
+    = form_tag("/steam_user/create_ids", {method: :post, id: "form"}) do
+      .btn.btn-primary#submit
+        register
