@@ -16,6 +16,7 @@ gem 'haml-rails'
 # assets
 group :development, :test do
   gem 'sqlite3'
+  gem "binding_of_caller"
 end
 
 # development
