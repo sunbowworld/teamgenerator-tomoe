@@ -11,19 +11,15 @@ class SteamUserController < ApplicationController
   end
 
   def create_ids
-    steam_users = params[:steam_id64s].map do |steam_id64|
-      if !steam_id64.empty? && SteamUser.where(steam_id64: steam_id64).blank?
-        st = SteamUser.new
-        st.steam_id64 = steam_id64
-      end
+    steam_users = params[:staem_id64s].each do |steam_id64|
+      SteamUser.create steam_id64: steam_id64 if SteamUser.where(steam_id64: steam_id64).blank?
     end
-    steam_users.compact.each(&:save)
     redirect_to action: :index
   end
 
-  def steam_group
+  def search_group
     @steam_group = SteamGroup.new(params[:group_id])
-    @steam_ids = @steam_group.members.map do |member|
+    @steam_users = @steam_group.members.map do |member|
       SteamId.new member.steam_id64
     end
   end
