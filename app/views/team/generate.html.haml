@@ -1,14 +1,15 @@
-= render partial: "layouts/side_bar", locals: {steam_users: @steam_users}
 .container
   = form_tag("/team", {method: :post, id: "form"}) do
     %input{type: "hidden", name: "group_id", value: "2"}
   .row
-    %h3
-      setting
-    .row
-      .col-md-4
-        %span.label.label-default
-          The number of teams?
+    .col-md-4
+      .row
+        %h3
+          設定
+      .row
+        %Strong
+          チームの数
+      .row
         .btn-group
           %button.btn.btn-default.btn-xs.dropdown-toggle.number_of_teams{"data-toggle" => "dropdown"}
             .value{style: "float:left"}
@@ -16,31 +17,49 @@
             %div{style: "float:left"}
               %span.caret
           %ul.dropdown-menu
-            - for teams_value in 1..4 do
+            - for teams_value in 2..4 do
               %li.teams_value
                 %a
                   = teams_value
-      .col-md-4
-        .btn.btn-primary#submit
-          Send
-      .col-md-4
+      .row                  
         .generator
           = image_tag 'generator.jpg', size: '128x128'
-    %h3
-      selected_users
-    .row.tg_area
-      .tg_result.row
-      .tg_user.row
-    .add_form
-      %Strong
-        ユーザを追加
-      .form_steam_id
-        = form_tag "/home/add" do
-          = text_field_tag "steam_id64s[]"
-          = submit_tag "追加", name: nil
-      .form_group_id
+      .row
         %Strong
-          グループからユーザを追加
-        = form_tag "/steam_user/search_group", method: :get do
-          = text_field_tag "group_id"
-          = submit_tag "検索", name: nil
+          チームを送信
+      .row
+        %button#submit
+          Send!
+      .row
+        .add_form
+          %Strong
+            ユーザを追加
+          .form_steam_id
+            = form_tag "/home/add" do
+              = text_field_tag "steam_id64s[]"
+              = submit_tag "追加", name: nil
+          .form_group_id
+            %Strong
+              グループからユーザを追加
+            = form_tag "/steam_user/search_group", method: :get do
+              = text_field_tag "group_id"
+              = submit_tag "検索", name: nil
+    .col-md-8
+      .row
+        .col-md-6
+          .row
+            %h3
+              ゲーム参加者
+          .row   
+            .tg_user.row
+        .col-md-6
+          .row
+            .tg_area
+              .tg_result.row
+      .row
+        %h3
+          アクティブユーザ
+      .row
+        .user_list
+          - @steam_users.each do |steam_user|
+            = steam_card_sidebar(steam_user)
